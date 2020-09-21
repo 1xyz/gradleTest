@@ -1,0 +1,29 @@
+/* Introductory example; refer https://spring.io/guides/gs/gradle/*/
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'hello.HelloWorld'
+
+repositories {
+    // Dependencies are synced & resolved from mavenCentral
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Refer article for compileOnly, implementation, runtimeOnly etc...
+// https://tomgregory.com/gradle-implementation-vs-compile-dependencies/
+dependencies {
+    implementation "joda-time:joda-time:2.2"
+    testImplementation (
+        "junit:junit:4.12",
+        "org.hamcrest:hamcrest:2.2"
+    )
+}
+
+jar {
+    archiveBaseName = 'gs-gradle'
+    archiveVersion =  '0.1.0'
+}
